@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>לוח שידורי מונדיאל 2026</title>
+    <style>
+        :root {
+            --primary-color: #004b87;
+            --secondary-color: #00a1f1;
+            --bg-color: #f0f4f8;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 20px auto;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        #searchInput:focus {
+            border-color: var(--secondary-color);
+        }
+
+        .matches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .match-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .match-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        .match-teams {
+            font-size: 1.4em;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 15px;
+            color: #111;
+        }
+
+        .match-details {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95em;
+            color: #555;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .match-channel {
+            text-align: center;
+            font-weight: bold;
+            color: var(--secondary-color);
+            background: #e6f5ff;
+            padding: 8px;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>⚽ לוח שידורי מונדיאל 2026 ⚽</h1>
+        <p>כל המשחקים, השעות והערוצים - שעון ישראל</p>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="חיפוש חופשי (למשל: ארגנטינה, כאן 11, 19:00)...">
+    </div>
+
+    <div class="matches-grid" id="matchesContainer">
+        <!-- המשחקים ירונדרו לכאן באמצעות JavaScript -->
+    </div>
+
+    <script>
+        // כאן אתה יכול להזין את כל נתוני המשחקים מהאתר. 
+        // המבנה הזה מקל על הוספה ועדכון של נתונים מבלי לגעת ב-HTML.
+        const matchesData = [
+            { date: "11/06", time: "19:00", team1: "ארה״ב", team2: "קנדה", channel: "כאן 11", stage: "משחק הפתיחה" },
+            { date: "11/06", time: "22:00", team1: "מקסיקו", team2: "ניו זילנד", channel: "כאן 11", stage: "שלב הבתים" },
+            { date: "12/06", time: "16:00", team1: "ארגנטינה", team2: "אוסטרליה", channel: "ספורט 5", stage: "שלב הבתים" },
+            { date: "12/06", time: "19:00", team1: "צרפת", team2: "מרוקו", channel: "ספורט 5", stage: "שלב הבתים" },
+            { date: "12/06", time: "22:00", team1: "ספרד", team2: "יפן", channel: "ספורט 5", stage: "שלב הבתים" },
+            { date: "13/06", time: "16:00", team1: "אנגליה", team2: "סנגל", channel: "ספורט 5", stage: "שלב הבתים" },
+            { date: "13/06", time: "19:00", team1: "ברזיל", team2: "קרואטיה", channel: "כאן 11", stage: "שלב הבתים" },
+            { date: "13/07", time: "22:00", team1: "הגמר", team2: "הגדול", channel: "כאן 11 / ספורט 5", stage: "גמר" }
+            // פשוט תוסיף כאן עוד אובייקטים של משחקים
+        ];
+
+        const container = document.getElementById('matchesContainer');
+        const searchInput = document.getElementById('searchInput');
+
+        // פונקציה לרינדור הכרטיסיות
+        function renderMatches(matches) {
+            container.innerHTML = '';
+            
+            if (matches.length === 0) {
+                container.innerHTML = '<h3 style="grid-column: 1/-1; text-align: center;">לא נמצאו משחקים התואמים לחיפוש.</h3>';
+                return;
+            }
+
+            matches.forEach(match => {
+                const card = document.createElement('div');
+                card.className = 'match-card';
+                card.innerHTML = `
+                    <div class="match-details">
+                        <span>📅 ${match.date}</span>
+                        <span>⏰ ${match.time}</span>
+                        <span>🏆 ${match.stage}</span>
+                    </div>
+                    <div class="match-teams">
+                        ${match.team1} - ${match.team2}
+                    </div>
+                    <div class="match-channel">
+                        📺 שידור: ${match.channel}
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // פילטר חיפוש בזמן אמת
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.trim().toLowerCase();
+            const filteredMatches = matchesData.filter(match => {
+                return match.team1.includes(searchTerm) || 
+                       match.team2.includes(searchTerm) || 
+                       match.channel.includes(searchTerm) ||
+                       match.date.includes(searchTerm) ||
+                       match.time.includes(searchTerm);
+            });
+            renderMatches(filteredMatches);
+        });
+
+        // קריאה ראשונית להצגת כל המשחקים
+        renderMatches(matchesData);
+    </script>
+</body>
+</html>
+
