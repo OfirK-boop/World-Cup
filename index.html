@@ -122,53 +122,52 @@
     <script>
         // כאן אתה יכול להזין את כל נתוני המשחקים מהאתר. 
         // המבנה הזה מקל על הוספה ועדכון של נתונים מבלי לגעת ב-HTML.
-        const matchesData = [
-    // מחזור 1
-    { date: "11/06", time: "22:00", team1: "מקסיקו", team2: "דרום אפריקה", channel: "כאן 11", stage: "שלב הבתים" },
-    { date: "12/06", time: "05:00", team1: "קוריאה הדרומית", team2: "צ'כיה", channel: "כאן 11", stage: "שלב הבתים" },
-    { date: "12/06", time: "22:00", team1: "קנדה", team2: "בוסניה והרצגובינה", channel: "כאן 11", stage: "שלב הבתים" },
-    { date: "13/06", time: "04:00", team1: "ארה\"ב", team2: "פראגוואי", channel: "כאן BOX", stage: "שלב הבתים" },
-    { date: "13/06", time: "07:00", team1: "אוסטרליה", team2: "טורקיה", channel: "כאן BOX", stage: "שלב הבתים" },
-    { date: "13/06", time: "22:00", team1: "קטאר", team2: "שווייץ", channel: "כאן 11", stage: "שלב הבתים" },
-    { date: "14/06", time: "01:00", team1: "ברזיל", team2: "מרוקו", channel: "כאן 11", stage: "שלב הבתים" },
-    { date: "14/06", time: "04:00", team1: "האיטי", team2: "סקוטלנד", channel: "כאן BOX", stage: "שלב הבתים" },
-    { date: "14/06", time: "20:00", team1: "גרמניה", team2: "קוראסאו", channel: "כאן 11", stage: "שלב הבתים" },
-    { date: "14/06", time: "23:00", team1: "הולנד", team2: "יפן", channel: "כאן 11", stage: "שלב הבתים" },
-    { date: "15/06", time: "02:00", team1: "חוף השנהב", team2: "אקוודור", channel: "כאן BOX", stage: "שלב הבתים" },
-    { date: "15/06", time: "05:00", team1: "שבדיה", team2: "טוניסיה", channel: "כאן BOX", stage: "שלב הבתים" },
-    { date: "15/06", time: "19:00", team1: "ספרד", team2: "כף ורדה", channel: "כאן 11", stage: "שלב הבתים" },
-    { date: "15/06", time: "22:00", team1: "בלגיה", team2: "מצרים", channel: "כאן 11", stage: "שלב הבתים" },
-    { date: "16/06", time: "01:00", team1: "ערב הסעודית", team2: "אורוגוואי", channel: "כאן BOX", stage: "שלב הבתים" },
-    { date: "16/06", time: "04:00", team1: "איראן", team2: "ניו זילנד", channel: "כאן BOX", stage: "שלב הבתים" },
-    { date: "16/06", time: "22:00", team1: "צרפת", team2: "סנגל", channel: "כאן 11", stage: "שלב הבתים" },
-    
-    // מחזור 2
-    { date: "17/06", time: "01:00", team1: "עיראק", team2: "נורבגיה", channel: "כאן BOX", stage: "שלב הבתים" },
-    { date: "17/06", time: "04:00", team1: "ארגנטינה", team2: "אלג'יריה", channel: "כאן 11", stage: "שלב הבתים" },
-    { date: "17/06", time: "07:00", team1: "אוסטריה", team2: "ירדן", channel: "כאן BOX", stage: "שלב הבתים" },
-    { date: "17/06", time: "20:00", team1: "פורטוגל", team2: "קונגו הדמוקרטית", channel: "כאן 11", stage: "שלב הבתים" },
-    { date: "17/06", time: "23:00", team1: "אנגליה", team2: "קרואטיה", channel: "כאן 11", stage: "שלב הבתים" },
-    { date: "18/06", time: "02:00", team1: "גאנה", team2: "פנמה", channel: "כאן BOX", stage: "שלב הבתים" },
-    { date: "18/06", time: "05:00", team1: "אוזבקיסטן", team2: "קולומביה", channel: "כאן BOX", stage: "שלב הבתים" },
-    { date: "18/06", time: "19:00", team1: "צ'כיה", team2: "דרום אפריקה", channel: "כאן 11", stage: "שלב הבתים" },
-    { date: "18/06", time: "22:00", team1: "שווייץ", team2: "בוסניה והרצגובינה", channel: "כאן 11", stage: "שלב הבתים" },
-    { date: "19/06", time: "01:00", team1: "קנדה", team2: "קטאר", channel: "כאן 11", stage: "שלב הבתים" },
-    { date: "19/06", time: "04:00", team1: "מקסיקו", team2: "דרום קוריאה", channel: "כאן BOX", stage: "שלב הבתים" },
-    { date: "19/06", time: "22:00", team1: "ארה\"ב", team2: "אוסטרליה", channel: "כאן 11", stage: "שלב הבתים" },
-    { date: "20/06", time: "01:00", team1: "סקוטלנד", team2: "מרוקו", channel: "כאן 11", stage: "שלב הבתים" },
-    { date: "20/06", time: "03:30", team1: "ברזיל", team2: "האיטי", channel: "כאן 11", stage: "שלב הבתים" },
-    { date: "20/06", time: "06:00", team1: "טורקיה", team2: "פראגוואי", channel: "כאן BOX", stage: "שלב הבתים" },
-    { date: "20/06", time: "20:00", team1: "הולנד", team2: "שבדיה", channel: "כאן 11", stage: "שלב הבתים" },
-    { date: "20/06", time: "23:00", team1: "גרמניה", team2: "חוף השנהב", channel: "כאן 11", stage: "שלב הבתים" },
-    { date: "21/06", time: "03:00", team1: "אקוודור", team2: "קוראסאו", channel: "כאן BOX", stage: "שלב הבתים" },
-    { date: "21/06", time: "07:00", team1: "טוניסיה", team2: "יפן", channel: "כאן BOX", stage: "שלב הבתים" },
+         const matchesData = [
+    // --- מחזור 1 ---
+    { date: "11/06", time: "22:00", team1: "מקסיקו", team2: "דרום אפריקה", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "12/06", time: "05:00", team1: "דרום קוריאה", team2: "צ'כיה", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "12/06", time: "22:00", team1: "קנדה", team2: "בוסניה והרצגובינה", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "13/06", time: "04:00", team1: "ארה\"ב", team2: "פראגוואי", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "13/06", time: "22:00", team1: "קטאר", team2: "שווייץ", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "14/06", time: "01:00", team1: "ברזיל", team2: "מרוקו", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "14/06", time: "04:00", team1: "האיטי", team2: "סקוטלנד", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "14/06", time: "07:00", team1: "אוסטרליה", team2: "טורקיה", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "14/06", time: "20:00", team1: "גרמניה", team2: "קוראסאו", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "14/06", time: "23:00", team1: "הולנד", team2: "יפן", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "15/06", time: "02:00", team1: "חוף השנהב", team2: "אקוודור", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "15/06", time: "05:00", team1: "שבדיה", team2: "טוניסיה", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "15/06", time: "19:00", team1: "ספרד", team2: "כף ורדה", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "15/06", time: "22:00", team1: "בלגיה", team2: "מצרים", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "16/06", time: "01:00", team1: "ערב הסעודית", team2: "אורוגוואי", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "16/06", time: "04:00", team1: "איראן", team2: "ניו זילנד", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "16/06", time: "22:00", team1: "צרפת", team2: "סנגל", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "17/06", time: "01:00", team1: "עיראק", team2: "נורבגיה", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "17/06", time: "04:00", team1: "ארגנטינה", team2: "אלג'יריה", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "17/06", time: "07:00", team1: "אוסטריה", team2: "ירדן", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
 
-    // שלבי נוקאאוט והגמר
-    { date: "29/06", time: "22:00", team1: "מנצחת בית א'", team2: "סגנית בית ב'", channel: "כאן 11", stage: "שמינית גמר" },
-    { date: "04/07", time: "22:00", team1: "מנצחת שמינית 1", team2: "מנצחת שמינית 2", channel: "כאן 11", stage: "רבע גמר" },
-    { date: "08/07", time: "22:00", team1: "מנצחת רבע 1", team2: "מנצחת רבע 2", channel: "כאן 11", stage: "חצי גמר" },
-    { date: "13/07", time: "22:00", team1: "הגמר הגדול", team2: "", channel: "כאן 11", stage: "גמר" }
+    // --- מחזור 2 ---
+    { date: "17/06", time: "20:00", team1: "פורטוגל", team2: "קונגו הדמוקרטית", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "17/06", time: "23:00", team1: "אנגליה", team2: "קרואטיה", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "18/06", time: "02:00", team1: "גאנה", team2: "פנמה", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "18/06", time: "05:00", team1: "אוזבקיסטן", team2: "קולומביה", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "18/06", time: "19:00", team1: "צ'כיה", team2: "דרום אפריקה", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "18/06", time: "22:00", team1: "שווייץ", team2: "בוסניה והרצגובינה", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "19/06", time: "01:00", team1: "קנדה", team2: "קטאר", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "19/06", time: "04:00", team1: "מקסיקו", team2: "דרום קוריאה", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "19/06", time: "07:00", team1: "טורקיה", team2: "פראגוואי", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "19/06", time: "22:00", team1: "ארה\"ב", team2: "אוסטרליה", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "20/06", time: "01:00", team1: "סקוטלנד", team2: "מרוקו", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "20/06", time: "03:30", team1: "ברזיל", team2: "האיטי", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "20/06", time: "20:00", team1: "הולנד", team2: "שבדיה", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "20/06", time: "23:00", team1: "גרמניה", team2: "חוף השנהב", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "21/06", time: "03:00", team1: "אקוודור", team2: "קוראסאו", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "21/06", time: "07:00", team1: "טוניסיה", team2: "יפן", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "21/06", time: "19:00", team1: "ספרד", team2: "ערב הסעודית", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "22/06", time: "01:00", team1: "אורוגוואי", team2: "כף ורדה", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "23/06", time: "20:00", team1: "פורטוגל", team2: "אוזבקיסטן", channel: "כאן 11 / BOX", stage: "שלב הבתים" },
+    { date: "24/06", time: "05:00", team1: "קולומביה", team2: "קונגו הדמוקרטית", channel: "כאן 11 / BOX", stage: "שלב הבתים" }
 ];
+
 
 
         const container = document.getElementById('matchesContainer');
